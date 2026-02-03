@@ -7,7 +7,7 @@ function rupiah(angka) {
 
 function proses() {
   // reset data barang setiap kali proses dijalankan
-  databarang = []
+  dataBarang = []
   
   // reset output setiap kali proses dijalankan 
   document.getElementById("hasil").innerHTML = ""
@@ -17,28 +17,28 @@ let JUMLAH_BARANG =  Number (prompt("JUMLAH_BARANG"))
    // LOOP INPUT HARGA BARANG
   for (let i = 1; i <= JUMLAH_BARANG; i++) {
     let harga = Number(prompt("Masukkan harga barang ke-" + i))
-    databarang.push(harga)
+    dataBarang.push(harga)
   }
   
   // aktifkan tombol cetak
   document.getElementById("cetak").disabled = false
  
  // menampilkan info barang yang sudah diinput
- document.getElementById("hasil").innerHTML = "data barang berhasil diinput.(jumlah barang: " + databarang.length + ")"
+ document.getElementById("hasil").innerHTML = "data barang berhasil diinput.(jumlah barang: " + dataBarang.length + ")"
   }
 
   function cetak() {
     let total = 0
     let output = ""
-    
-    // loop input harga barang dari array global databarang
-    for (let i = 0; i < databarang.length; i++) {
-      let harga = databarang[i]
-      total += harga 
-      
-      output +="barang ke-" + (i + 1) +": Rp " + rupiah(harga) + "<br>"
-    }
 
+ // loop input harga barang dari array global dataBarang
+ for (let i = 0; i <dataBarang.length; i++){
+   let harga= dataBarang [i]
+   total += harga
+   
+   output +="Barang ke-" + (i + 1) + ":Rp " + rupiah(harga) + "<br>"
+ }
+ 
   // HITUNG DISKON
   let diskon = 0
   if (total > 500000) {
